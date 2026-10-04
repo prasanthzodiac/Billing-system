@@ -1,0 +1,1 @@
+ALTER TYPE "TaxMode" ADD VALUE 'NO_GST';
