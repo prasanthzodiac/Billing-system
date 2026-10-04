@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -866,7 +866,7 @@ function Dropdown({ value, onChange, options, ariaLabel, className = "", searcha
     return () => document.removeEventListener("mousedown", closeOnOutsideClick);
   }, [open]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open || !triggerRef.current) return;
     const updatePosition = () => {
       const rect = triggerRef.current!.getBoundingClientRect();
